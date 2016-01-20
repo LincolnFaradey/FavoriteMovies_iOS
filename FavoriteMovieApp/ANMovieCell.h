@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ANMovieCell.h
 //  FavoriteMovieApp
 //
 //  Created by Andrei Nechaev on 1/18/16.
@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ANMovieCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *posterView;
 
 @end

@@ -1,13 +1,13 @@
 //
-//  ViewController.h
+//  ANMovieCell.m
 //  FavoriteMovieApp
 //
 //  Created by Andrei Nechaev on 1/18/16.
 //  Copyright © 2016 Nechaev. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ANMovieCell.h"
 
-@interface ViewController : UIViewController
+@implementation ANMovieCell
 
 @end
