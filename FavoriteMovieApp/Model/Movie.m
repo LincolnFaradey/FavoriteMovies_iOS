@@ -29,10 +29,10 @@
     NSString *path = dict[@"poster_path"];
     NSString *imageURLPath = [@"http://image.tmdb.org/t/p/w300" stringByAppendingString:path];
     
-    NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"Movie"
+    NSEntityDescription *entityDesc = [NSEntityDescription entityForName:[self entityName]
                                                   inManagedObjectContext:context];
     
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Movie"];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
     request.predicate = [NSPredicate predicateWithFormat:@"movieID == %ld", movieID.integerValue];
     request.fetchLimit = 1;
     request.entity = entityDesc;
@@ -45,7 +45,7 @@
     }
 
     if ([result count] == 0) {
-        self = [NSEntityDescription insertNewObjectForEntityForName:@"Movie"
+        self = [NSEntityDescription insertNewObjectForEntityForName:[self entityName]
                                                  inManagedObjectContext:context];
         self.movieID = movieID;
         self.name = movieTitle;
@@ -56,6 +56,11 @@
     }
 
     return self;
+}
+
+- ( NSString * _Nonnull )entityName
+{
+    return @"Movie";
 }
 
 @end
